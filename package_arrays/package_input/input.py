@@ -1,4 +1,4 @@
-from package_input.validate import *
+from package_arrays.package_input.validate import *
 
 def get_int(mensaje:str, mensaje_error:str, minimo:int = float("-inf"), maximo:int = float("+inf"), reintentos:int = float("+inf"))->int|None:
     """Funcion que pide un numero y valida que el numero este en un rango
@@ -198,3 +198,7 @@ def acumular_lista(lista:list, excepcion:any):
         if lista[i] != excepcion:
             acumulador += lista[i]
     return acumulador
+
+def crear_lista(valor_inicial:any, posiciones:int)->list:
+    lista = [valor_inicial]*posiciones
+    return lista
