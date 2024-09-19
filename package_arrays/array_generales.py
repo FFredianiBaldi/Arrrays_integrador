@@ -52,3 +52,15 @@ def buscar_numeros_pares(lista:list)->list|None:
         return pares
     else:
         return None
+
+def buscar_posiciones_imppares(lista:list)->list|None:
+    pares = []
+    bandera_lista_llena = False
+    for i in range(len(lista)):
+        if determinar_par(lista[i]) == False:
+            pares += [i]
+            bandera_lista_llena = True
+    if bandera_lista_llena:
+        return pares
+    else:
+        return None

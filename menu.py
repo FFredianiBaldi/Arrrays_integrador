@@ -4,8 +4,9 @@ from os import system
 lista = crear_lista(None, 10)
 bandera_lista_llena = False
 bandera = True
+system("cls")
 while bandera:
-    opcion = get_int("1. Ingresar 10 numeros entre -1000 y 1000\n2. Mostrar la cantidad de numeros positivos y negativos\n3. Mostrar sumatoria de los numeros pares\n4. Mostrar el mayor de los numeros impares\n5. Mostrar todos los numeros ingresados\n6. Mostrar numeros pares\n7. Salir\nIngrese una opcion: ", "Ingrese una de las opciones arriba mencionadas: ", 1, 7)
+    opcion = get_int("\n1. Ingresar 10 numeros entre -1000 y 1000\n2. Mostrar la cantidad de numeros positivos y negativos\n3. Mostrar sumatoria de los numeros pares\n4. Mostrar el mayor de los numeros impares\n5. Mostrar todos los numeros ingresados\n6. Mostrar numeros pares\n7. Mostrar posiciones donde se encuentran numeros impares\n8. Salir\nIngrese una opcion: ", "Ingrese una de las opciones arriba mencionadas: ", 1, 8)
     match opcion:
         case 1:
             lista = get_list("Ingrese un numero(entre -1000 y 1000): ", "Reingrese el numero(entre -1000 y 1000)", 10, -1000, 1000)
@@ -38,12 +39,22 @@ while bandera:
                 if numeros_pares != None:
                     print("Los numeros pares ingresados son los siguientes:")
                     for i in range(len(numeros_pares)):
-                        print(numeros_pares[i])
+                        print(numeros_pares[i], end=" ")
                 else:
                     print("No ingreso ningun numero par")
             else:
                 print("Primero debe ingresar los 10 numeros.")
         case 7:
+            if bandera_lista_llena:
+                if posiciones_impares != None:
+                    print("Las posiciones de los numeros impares ingresados son los siguientes:")
+                    for i in range(len(posiciones_impares)):
+                        print(posiciones_impares[i] + 1, end=" ")
+                else:
+                    print("No ingreso ningun numero impar")
+            else:
+                print("Primero debe ingresar los 10 numeros.")
+        case 8:
             print("Salir")
             bandera = False
     if bandera_lista_llena:
@@ -52,3 +63,6 @@ while bandera:
         suma_pares = sumar_pares(lista)
         mayor_impares = determinar_mayor_impares(lista)
         numeros_pares = buscar_numeros_pares(lista)
+        posiciones_impares = buscar_posiciones_imppares(lista)
+    system("pause")
+    system("cls")
