@@ -20,3 +20,10 @@ def calcular_negativos(lista:list)->int:
         if determinar_positivo(lista[i]) == False:
             contador_negativos += 1
     return contador_negativos
+
+def sumar_pares(lista:list)->int:
+    acumulador_pares = 0
+    for i in range(len(lista)):
+        if determinar_par(lista[i]):
+            acumulador_pares += lista[i]
+    return acumulador_pares
