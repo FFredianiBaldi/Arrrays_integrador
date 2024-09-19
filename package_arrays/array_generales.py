@@ -40,3 +40,15 @@ def determinar_mayor_impares(lista:list)->int|None:
     else:
         return None
     return mayor_impares
+
+def buscar_numeros_pares(lista:list)->list|None:
+    pares = []
+    bandera_lista_llena = False
+    for i in range(len(lista)):
+        if determinar_par(lista[i]):
+            pares += [lista[i]]
+            bandera_lista_llena = True
+    if bandera_lista_llena:
+        return pares
+    else:
+        return None
