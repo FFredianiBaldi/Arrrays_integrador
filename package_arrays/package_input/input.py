@@ -1,6 +1,6 @@
 from package_input.validate import *
 
-def get_int(mensaje:str, mensaje_error:str, minimo:int, maximo:int, reintentos:int)->int|None:
+def get_int(mensaje:str, mensaje_error:str, minimo:int = float("-inf"), maximo:int = float("+inf"), reintentos:int = float("+inf"))->int|None:
     """Funcion que pide un numero y valida que el numero este en un rango
 
     Args:
@@ -186,10 +186,6 @@ def reemplazar_nombre(lista_nombres:list, nombre_reemplazar:str, reemplazo:str)-
             contador_reemplazos += 1
     
     return contador_reemplazos
-
-def crear_lista(posiciones:int, valores:any)->list:
-    lista = [valores] * posiciones
-    return lista
 
 def mostrar_lista(lista:list, excepcion:any):
     for i in range(len(lista)):
