@@ -27,3 +27,16 @@ def sumar_pares(lista:list)->int:
         if determinar_par(lista[i]):
             acumulador_pares += lista[i]
     return acumulador_pares
+
+def determinar_mayor_impares(lista:list)->int|None:
+    impares = []
+    bandera_lista_llena = False
+    for i in range(len(lista)):
+        if determinar_par(lista[i]) == False:
+            impares += [i]
+            bandera_lista_llena = True
+    if bandera_lista_llena:
+        mayor_impares = determinar_mayor(impares)
+    else:
+        return None
+    return mayor_impares

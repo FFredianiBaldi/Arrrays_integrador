@@ -5,7 +5,7 @@ lista = crear_lista(None, 10)
 bandera_lista_llena = False
 bandera = True
 while bandera:
-    opcion = get_int("1. Ingresar 10 numeros entre -1000 y 1000\n2. Mostrar la cantidad de numeros positivos y negativos\n3. Mostrar sumatoria de los numeros pares\n4. Salir\nIngrese una opcion: ", "Ingrese una de las opciones arriba mencionadas: ", 1, 4)
+    opcion = get_int("1. Ingresar 10 numeros entre -1000 y 1000\n2. Mostrar la cantidad de numeros positivos y negativos\n3. Mostrar sumatoria de los numeros pares\n4. Mostrar el mayor de los numeros impares\n5. Salir\nIngrese una opcion: ", "Ingrese una de las opciones arriba mencionadas: ", 1, 5)
     match opcion:
         case 1:
             lista = get_list("Ingrese un numero(entre -1000 y 1000): ", "Reingrese el numero(entre -1000 y 1000)", 10, -1000, 1000)
@@ -21,9 +21,18 @@ while bandera:
             else:
                 print("Primero debe ingresar los 10 numeros.")
         case 4:
+            if bandera_lista_llena:
+                if mayor_impares != None:
+                    print(f"El mayor de los numeros impares ingresados es el numero {mayor_impares}.")
+                else:
+                    print("No ingreso ningun numero impar.")
+            else:
+                print("Primero debe ingresar los 10 numeros.")
+        case 5:
             print("Salir")
             bandera = False
     if bandera_lista_llena:
         cantidad_positivos = calcular_positivos(lista)
         cantidad_negativos = calcular_negativos(lista)
         suma_pares = sumar_pares(lista)
+        mayor_impares = determinar_mayor_impares(lista)
